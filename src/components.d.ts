@@ -6,14 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DropDown {
+    }
+    interface DropDownContent {
+    }
     interface InputBase {
     }
     interface InputGroup {
+    }
+    interface NonShadowHost {
+    }
+    interface ShadowHost {
     }
     interface TextInput {
     }
 }
 declare global {
+    interface HTMLDropDownElement extends Components.DropDown, HTMLStencilElement {
+    }
+    var HTMLDropDownElement: {
+        prototype: HTMLDropDownElement;
+        new (): HTMLDropDownElement;
+    };
+    interface HTMLDropDownContentElement extends Components.DropDownContent, HTMLStencilElement {
+    }
+    var HTMLDropDownContentElement: {
+        prototype: HTMLDropDownContentElement;
+        new (): HTMLDropDownContentElement;
+    };
     interface HTMLInputBaseElement extends Components.InputBase, HTMLStencilElement {
     }
     var HTMLInputBaseElement: {
@@ -26,6 +46,18 @@ declare global {
         prototype: HTMLInputGroupElement;
         new (): HTMLInputGroupElement;
     };
+    interface HTMLNonShadowHostElement extends Components.NonShadowHost, HTMLStencilElement {
+    }
+    var HTMLNonShadowHostElement: {
+        prototype: HTMLNonShadowHostElement;
+        new (): HTMLNonShadowHostElement;
+    };
+    interface HTMLShadowHostElement extends Components.ShadowHost, HTMLStencilElement {
+    }
+    var HTMLShadowHostElement: {
+        prototype: HTMLShadowHostElement;
+        new (): HTMLShadowHostElement;
+    };
     interface HTMLTextInputElement extends Components.TextInput, HTMLStencilElement {
     }
     var HTMLTextInputElement: {
@@ -33,21 +65,37 @@ declare global {
         new (): HTMLTextInputElement;
     };
     interface HTMLElementTagNameMap {
+        "drop-down": HTMLDropDownElement;
+        "drop-down-content": HTMLDropDownContentElement;
         "input-base": HTMLInputBaseElement;
         "input-group": HTMLInputGroupElement;
+        "non-shadow-host": HTMLNonShadowHostElement;
+        "shadow-host": HTMLShadowHostElement;
         "text-input": HTMLTextInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface DropDown {
+    }
+    interface DropDownContent {
+    }
     interface InputBase {
     }
     interface InputGroup {
     }
+    interface NonShadowHost {
+    }
+    interface ShadowHost {
+    }
     interface TextInput {
     }
     interface IntrinsicElements {
+        "drop-down": DropDown;
+        "drop-down-content": DropDownContent;
         "input-base": InputBase;
         "input-group": InputGroup;
+        "non-shadow-host": NonShadowHost;
+        "shadow-host": ShadowHost;
         "text-input": TextInput;
     }
 }
@@ -55,8 +103,12 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "drop-down": LocalJSX.DropDown & JSXBase.HTMLAttributes<HTMLDropDownElement>;
+            "drop-down-content": LocalJSX.DropDownContent & JSXBase.HTMLAttributes<HTMLDropDownContentElement>;
             "input-base": LocalJSX.InputBase & JSXBase.HTMLAttributes<HTMLInputBaseElement>;
             "input-group": LocalJSX.InputGroup & JSXBase.HTMLAttributes<HTMLInputGroupElement>;
+            "non-shadow-host": LocalJSX.NonShadowHost & JSXBase.HTMLAttributes<HTMLNonShadowHostElement>;
+            "shadow-host": LocalJSX.ShadowHost & JSXBase.HTMLAttributes<HTMLShadowHostElement>;
             "text-input": LocalJSX.TextInput & JSXBase.HTMLAttributes<HTMLTextInputElement>;
         }
     }

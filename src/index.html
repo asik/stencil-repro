@@ -9,6 +9,7 @@
     <script nomodule src="/build/stencil-repro.js"></script>
   </head>
   <body>
+    <h1><a href="https://github.com/ionic-team/stencil/issues/4523">#1 Hidden slot bug </a></h1>
     <text-input>
       <span slot="label">Label text</span>
       <span slot="suffix">Suffix text</span>
@@ -18,6 +19,27 @@
       <span slot="label">Label text</span>
       <span slot="suffix">Suffix text</span>
       <span slot="message">Message text</span>
-  </input-base>
+    </input-base>
+
+    <h1>#2 Missing slotted content bug</h1>
+    <h2>drop down:</h2>
+    <drop-down>
+      <b slot="main-content">main content</b>
+      <div slot="dropdown-content-element">
+        <drop-down-content>
+          <b>dropdown-content</b>
+        </drop-down-content>
+      </div>
+    </drop-down>
+    <h2>drop-down in shadow host:</h2>
+    <shadow-host>
+      <b slot="main-content">main slotted content</b>
+      <b slot="dropdown-content">dropdown slotted content</b>
+    </shadow-host>
+    <h2>drop-down in non shadow host:</h2>
+    <non-shadow-host>
+      <b slot="main-content">main slotted content</b>
+      <b slot="dropdown-content">dropdown slotted content</b>
+    </non-shadow-host>
   </body>
 </html>
